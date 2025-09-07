@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>DetSys 支持 | Intelligent Road Distress Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DetSys 是一款智能路面病害检测系统，支持 iOS、macOS、visionOS，提供实时检测、多目标跟踪、GPS 同步与数据上传功能。" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="DetSys 支持" />
+  <meta property="og:description" content="智能路面病害检测系统 | 实时检测 · 多目标跟踪 · GPS 同步 · 数据上传" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_USERNAME.github.io/Detsys-support/" />
+  <!-- 简洁内置样式 -->
+  <style>
+    :root { --bg:#f8f9fb; --card:#ffffff; --text:#222; --sub:#666; --link:#0a84ff; --border:#e6e8ee; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif; line-height:1.6; }
+    .container { max-width: 960px; margin: 32px auto; padding: 0 20px; }
+    header { text-align: center; margin-bottom: 28px; }
+    header img { max-height: 88px; border-radius:16px; }
+    h1 { margin: 12px 0 6px; font-size: 28px; }
+    .tagline { color: var(--sub); margin-top: 0; }
+    .card { background: var(--card); border:1px solid var(--border); border-radius: 16px; padding: 20px; margin: 16px 0; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    h3 { margin: 16px 0 8px; font-size: 16px; }
+    ul { padding-left: 20px; margin:8px 0; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
+    .muted { color: var(--sub); }
+    .badge { display:inline-block; padding:2px 8px; border:1px solid var(--border); border-radius:999px; font-size:12px; margin-right:6px; background:#fff; }
+    footer { text-align:center; color:var(--sub); font-size: 13px; padding: 28px 0 40px; }
+    .lang-toggle { text-align:right; margin-top:-8px; }
+    .lang-toggle button { border:1px solid var(--border); background:#fff; padding:6px 10px; border-radius:10px; cursor:pointer; margin-left:6px; }
+    .lang-toggle button.active { border-color: var(--link); color: var(--link); }
+    .en { display:none; }
+    .notice { background:#fff7e6; border:1px solid #ffe0b2; padding:10px 12px; border-radius:10px; font-size: 14px; }
+  </style>
+  <script>
+    function setLang(lang){
+      document.querySelectorAll('.zh,.en').forEach(el=>el.style.display='none');
+      document.querySelectorAll('.'+lang).forEach(el=>el.style.display='block');
+      document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+      document.getElementById('btn-'+lang).classList.add('active');
+      localStorage.setItem('detsys-lang', lang);
+    }
+    window.addEventListener('DOMContentLoaded',()=>{
+      const saved = localStorage.getItem('detsys-lang') || 'zh';
+      setLang(saved);
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <!-- 替换为你的 Logo 链接或本地文件路径 -->
+      <img src="https://via.placeholder.com/160x160.png?text=DetSys" alt="DetSys Logo" />
+      <h1>DetSys 支持中心</h1>
+      <p class="tagline">智能路面病害检测系统 · 实时检测 · 多目标跟踪 · GPS 同步 · 数据上传</p>
+      <div class="lang-toggle">
+        <span class="muted">Language:</span>
+        <button id="btn-zh" onclick="setLang('zh')">中文</button>
+        <button id="btn-en" onclick="setLang('en')">English</button>
+      </div>
+    </header>
+
+    <!-- 概览 -->
+    <section class="card zh">
+      <h2>关于 DetSys</h2>
+      <p>
+        DetSys 是一款面向道路基础设施巡检的移动端计算机视觉应用，支持 <span class="badge">iOS 18.5+</span><span class="badge">macOS 15.5+</span><span class="badge">visionOS 2.5+</span>。
+        采用 Swift 5.0 + SwiftUI 技术栈，提供实时路面病害检测、多目标跟踪、GPS 定位与数据上传能力。
+      </p>
+    </section>
+    <section class="card en">
+      <h2>About DetSys</h2>
+      <p>
+        DetSys is a mobile computer-vision application for road infrastructure inspection, supporting <span class="badge">iOS 18.5+</span><span class="badge">macOS 15.5+</span><span class="badge">visionOS 2.5+</span>.
+        Built with Swift 5.0 and SwiftUI, it offers real-time road distress detection, multi-object tracking, GPS synchronization, and data upload.
+      </p>
+    </section>
+
+    <!-- 功能 & 架构 -->
+    <section class="grid">
+      <div class="card zh">
+        <h2>核心功能</h2>
+        <ul>
+          <li><strong>智能检测：</strong>实时视频流处理，前/后置摄像头与 USB 摄像头</li>
+          <li><strong>多目标追踪：</strong>ByteTrack 算法，确保目标持续跟踪</li>
+          <li><strong>任务管理：</strong>巡检任务创建、模板与进度管理</li>
+          <li><strong>模型管理：</strong>远程下载、本地缓存、动态更新</li>
+          <li><strong>可视化界面：</strong>四区域布局，实时检测叠加显示</li>
+        </ul>
+      </div>
+      <div class="card en">
+        <h2>Key Features</h2>
+        <ul>
+          <li><strong>Smart Detection:</strong> Real-time video processing with front/rear and USB cameras</li>
+          <li><strong>Multi-Object Tracking:</strong> ByteTrack for persistent target association</li>
+          <li><strong>Task Management:</strong> Creation, templates, and progress tracking</li>
+          <li><strong>Model Management:</strong> Remote download, local caching, dynamic updates</li>
+          <li><strong>Visualization:</strong> Four-pane UI with live overlay</li>
+        </ul>
+      </div>
+
+      <div class="card zh">
+        <h2>技术架构（摘要）</h2>
+        <ul>
+          <li><strong>检测引擎：</strong>YOLO CoreML 模型（支持 8 类路面病害）</li>
+          <li><strong>跟踪算法：</strong>ByteTrack 多目标跟踪，避免重复计算</li>
+          <li><strong>定位系统：</strong>高精度 GPS 与检测结果实时同步</li>
+          <li><strong>数据流：</strong>摄像头输入 → YOLO 检测 → ByteTrack 追踪 → 后处理 → 数据上传</li>
+          <li><strong>性能与可靠性：</strong>线程池监控、延迟加载、防抖机制、失败任务自动重试（最多 50 次）</li>
+        </ul>
+      </div>
+      <div class="card en">
+        <h2>Architecture (Overview)</h2>
+        <ul>
+          <li><strong>Detector:</strong> YOLO CoreML (8 road-distress classes)</li>
+          <li><strong>Tracker:</strong> ByteTrack, minimizing redundant computation</li>
+          <li><strong>Localization:</strong> High-accuracy GPS synchronized with detections</li>
+          <li><strong>Pipeline:</strong> Camera → YOLO → ByteTrack → Post-processing → Upload</li>
+          <li><strong>Perf & Reliability:</strong> Thread-pool monitoring, lazy loading, debounce, auto-retry (up to 50x)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 下载 / 版本 / 状态 -->
+    <section class="card zh">
+      <h2>下载与版本</h2>
+      <p class="notice">提示：如 App 尚未上架，可先保留本段并在上架后更新链接。</p>
+      <ul>
+        <li>App Store（iOS / iPadOS）：<a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">前往下载</a></li>
+        <li>发行说明（Release Notes）：<a href="https://github.com/YOUR_USERNAME/Detsys-support/releases" target="_blank" rel="noopener">查看版本更新</a></li>
+      </ul>
+    </section>
+    <section class="card en">
+      <h2>Download & Releases</h2>
+      <p class="notice">Note: If the app isn’t live yet, keep this section and update links after release.</p>
+      <ul>
+        <li>App Store (iOS / iPadOS): <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener">Open</a></li>
+        <li>Release Notes: <a href="https://github.com/YOUR_USERNAME/Detsys-support/releases" target="_blank" rel="noopener">Changelog</a></li>
+      </ul>
+    </section>
+
+    <!-- 常见问题 / FAQ -->
+    <section class="grid">
+      <div class="card zh">
+        <h2>常见问题</h2>
+        <h3>如何提交问题或建议？</h3>
+        <p>请发送邮件（见下方联系方式），并附上问题描述、设备型号、系统版本与截图/录屏。</p>
+        <h3>是否支持离线检测？</h3>
+        <p>检测模型在设备本地运行，可在无网络下执行检测；任务数据上传需网络连接。</p>
+        <h3>支持哪些设备与系统？</h3>
+        <p>iOS (18.5+)、macOS (15.5+)、visionOS (2.5+)。</p>
+      </div>
+      <div class="card en">
+        <h2>FAQ</h2>
+        <h3>How to report an issue or request a feature?</h3>
+        <p>Email us (see below) with a description, device model, OS version, and screenshots/screencasts.</p>
+        <h3>Is offline detection supported?</h3>
+        <p>Models run on-device; detection works offline. Network is required for data upload/sync.</p>
+        <h3>Which OS versions are supported?</h3>
+        <p>iOS 18.5+, macOS 15.5+, visionOS 2.5+.</p>
+      </div>
+    </section>
+
+    <!-- 隐私 / 联系 -->
+    <section class="grid">
+      <div class="card zh">
+        <h2>隐私与数据</h2>
+        <p>DetSys 以本地处理为优先，摄像头帧经模型推理后生成检测结果。除非用户在任务同步或云端备份中明确启用上传，否则原始图像和定位数据不会离开设备。</p>
+        <p>详情请参阅隐私政策：<a href="https://YOUR_PRIVACY_POLICY_URL" target="_blank" rel="noopener">查看隐私政策</a></p>
+      </div>
+      <div class="card en">
+        <h2>Privacy & Data</h2>
+        <p>DetSys prioritizes on-device processing. Camera frames are inferred locally. Unless users explicitly enable sync/backup, raw images and location data remain on device.</p>
+        <p>See our Privacy Policy: <a href="https://YOUR_PRIVACY_POLICY_URL" target="_blank" rel="noopener">Open Policy</a></p>
+      </div>
+
+      <div class="card zh">
+        <h2>反馈与联系</h2>
+        <p>邮箱：<a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+        <p>问题反馈（可选）：<a href="https://github.com/YOUR_USERNAME/Detsys-support/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </div>
+      <div class="card en">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></p>
+        <p>Issue Tracker (optional): <a href="https://github.com/YOUR_USERNAME/Detsys-support/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="zh">&copy; 2025 DetSys. 保留所有权利。</div>
+      <div class="en">&copy; 2025 DetSys. All rights reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
